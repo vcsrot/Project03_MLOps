@@ -18,7 +18,11 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    pass
+    # Create a RF model
+    clf = RandomForestClassifier(
+            random_state=8, max_depth=16, n_estimators=128)
+    clf.fit(X_train, y_train)
+    return clf
 
 
 def compute_model_metrics(y, preds):
@@ -48,7 +52,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : trained model object
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -57,4 +61,6 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    # Generate predictions
+    predictions = model.predict(X)
+    return predictions
