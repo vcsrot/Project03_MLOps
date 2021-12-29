@@ -22,19 +22,19 @@ def create_data_slice(data_path, col_to_slice, value_to_replace=None):
 
 
 if __name__ == '__main__':
-    col_to_slice = 'education'
-    value_to_replace = 'Bachelors'
+    col_fold = 'education'
+    category = 'Bachelors'
 
-    print("Performance on column: {} - category: {}".format(col_to_slice, value_to_replace))
+    print("Performance on column: {} - category: {}".format(col_fold, category))
     sliced_data = create_data_slice('data/census_clean.csv',
-                                    col_to_slice,
-                                    value_to_replace)
+                                    col_fold,
+                                    category)
 
     precision, recall, fbeta = batch_inference(sliced_data,
                                                "model/random_forest_model.pkl",
                                                CAT_FEATURES)
 
-    with open('slice_output.txt', 'a') as f:
-        result = f"""\n{'-'*50}\nperformance on sliced column -- {col_to_slice} -- {value_to_replace}\n{'-'*50} \
+    with open('Performance_Fold_{}_{}.txt'.format(col_fold, category), 'a') as f:
+        result = f"""\n{'-'*50}\nperformance on sliced column -- {col_fold} -- {category}\n{'-'*50} \
             \nPrecision:\t{precision}\nRecall:\t{recall}\nF-beta score:\t{fbeta}\n"""
         f.write(result)
