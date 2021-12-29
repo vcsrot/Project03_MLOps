@@ -17,11 +17,11 @@ def test_home():
     assert r.json() == {"Ok!": "Status code success."}
 
 
-def test_1_predict_income():
+def test_post_1():
     row1 = {
-        "age": 32,
+        "age": 21,
         "workclass": "Private",
-        "fnlwgt": 205019,
+        "fnlgt": 205019,
         "education": "Assoc-acdm",
         "education_num": 12,
         "marital_status": "Never-married",
@@ -31,7 +31,7 @@ def test_1_predict_income():
         "sex": "Male",
         "capital_gain": 0,
         "capital_loss": 0,
-        "hours_per_week": 50,
+        "hours_per_week": 40,
         "native_country": "United-States"
     }
     r = client.post('/inference', json=row1)
@@ -39,22 +39,22 @@ def test_1_predict_income():
     assert r.json() == {"income class": '<=50K'}
 
 
-def test_2_predict_income():
+def test_post_2():
     row2 = {
         "age": 47,
         "workclass": "Private",
-        "fnlwgt": 51835,
-        "education": "Prof-school",
+        "fnlgt": 51835,
+        "education": "Exec-managerial",
         "education_num": 15,
         "marital_status": "Married-civ-spouse",
         "occupation": "Prof-specialty",
-        "relationship": "Wife",
+        "relationship": "Husband",
         "race": "White",
-        "sex": "Female",
+        "sex": "Male",
         "capital_gain": 0,
         "capital_loss": 1902,
         "hours_per_week": 60,
-        "native_country": "Honduras"
+        "native_country": "United-States"
     }
     r = client.post('/inference', json=row2)
     assert r.status_code == 200
