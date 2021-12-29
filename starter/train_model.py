@@ -30,8 +30,11 @@ def create_model(train_data, categorical_features, model_path, label_column='sal
     # Train and save model
     model = train_model(X_train, y_train)
 
-    # Save the model in `model_path`
+    # Save the model in model_path
     joblib.dump((model, encoder, lb), model_path)
+
+    # Also save encoder (not required):
+    joblib.dump(encoder, 'model/encoder.pkl')
 
 
 def batch_inference(test_data, model_path, cat_features, label_column='salary'):
