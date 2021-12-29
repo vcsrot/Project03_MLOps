@@ -23,18 +23,24 @@ def create_data_slice(data_path, col_to_slice, value_to_replace=None):
 
 if __name__ == '__main__':
     col_fold = 'education'
-    category = 'Bachelors'
+    # category = 'Bachelors'
 
-    print("Performance on column: {} - category: {}".format(col_fold, category))
-    sliced_data = create_data_slice('data/census_clean.csv',
-                                    col_fold,
-                                    category)
-
-    precision, recall, fbeta = batch_inference(sliced_data,
-                                               "model/random_forest_model.pkl",
-                                               CAT_FEATURES)
+    df = pd.read_csv('data/census_clean.csv', index_col=None)
 
     with open('slice_output.txt', 'a') as f:
-        result = f"""\n{'-'*50}\nperformance on sliced column -- {col_fold} -- {category}\n{'-'*50} \
+
+        for item in df[col_fold].unique():
+
+            print("Performance on column: {} - category: {}".format(col_fold, item))
+            sliced_data = create_data_slice('data/census_clean.csv',
+                                            col_fold,
+                                            item)
+
+            precision, recall, fbeta = batch_inference(df[df[col_fold] == item],
+                                                    "model/random_forest_model.pkl",
+                                                    CAT_FEATURES)
+
+            result = f"""\nPerformance on sliced feature -- {col_fold} -- {item} \
             \nPrecision:\t{precision}\nRecall:\t{recall}\nF-beta score:\t{fbeta}\n"""
-        f.write(result)
+            
+            f.write(result)

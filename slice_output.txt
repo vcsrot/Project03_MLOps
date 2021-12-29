@@ -1,0 +1,80 @@
+
+Performance on sliced feature -- education -- Bachelors             
+Precision:	0.7989396411092985
+Recall:	0.8820351193156236
+F-beta score:	0.8384335544618018
+
+Performance on sliced feature -- education -- HS-grad             
+Precision:	0.9721669980119284
+Recall:	0.29194029850746267
+F-beta score:	0.44903581267217624
+
+Performance on sliced feature -- education -- 11th             
+Precision:	1.0
+Recall:	0.31666666666666665
+F-beta score:	0.4810126582278481
+
+Performance on sliced feature -- education -- Masters             
+Precision:	0.8596491228070176
+Recall:	0.9197080291970803
+F-beta score:	0.8886649874055416
+
+Performance on sliced feature -- education -- 9th             
+Precision:	1.0
+Recall:	0.2222222222222222
+F-beta score:	0.3636363636363636
+
+Performance on sliced feature -- education -- Some-college             
+Precision:	0.8835098335854765
+Recall:	0.42105263157894735
+F-beta score:	0.5703125
+
+Performance on sliced feature -- education -- Assoc-acdm             
+Precision:	0.9069767441860465
+Recall:	0.5886792452830188
+F-beta score:	0.7139588100686498
+
+Performance on sliced feature -- education -- Assoc-voc             
+Precision:	0.9095744680851063
+Recall:	0.47368421052631576
+F-beta score:	0.6229508196721311
+
+Performance on sliced feature -- education -- 7th-8th             
+Precision:	0.9
+Recall:	0.225
+F-beta score:	0.36000000000000004
+
+Performance on sliced feature -- education -- Doctorate             
+Precision:	0.9006024096385542
+Recall:	0.9771241830065359
+F-beta score:	0.9373040752351097
+
+Performance on sliced feature -- education -- Prof-school             
+Precision:	0.9076923076923077
+Recall:	0.9763593380614657
+F-beta score:	0.9407744874715261
+
+Performance on sliced feature -- education -- 5th-6th             
+Precision:	1.0
+Recall:	0.3125
+F-beta score:	0.47619047619047616
+
+Performance on sliced feature -- education -- 10th             
+Precision:	0.9285714285714286
+Recall:	0.20967741935483872
+F-beta score:	0.34210526315789475
+
+Performance on sliced feature -- education -- 1st-4th             
+Precision:	1.0
+Recall:	0.3333333333333333
+F-beta score:	0.5
+
+Performance on sliced feature -- education -- Preschool             
+Precision:	0.0
+Recall:	1.0
+F-beta score:	0.0
+
+Performance on sliced feature -- education -- 12th             
+Precision:	1.0
+Recall:	0.2727272727272727
+F-beta score:	0.42857142857142855
