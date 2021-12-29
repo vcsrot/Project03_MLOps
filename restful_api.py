@@ -19,19 +19,19 @@ CAT_FEATURES = [
 
 
 class RowData(BaseModel):
-    age: int = Field(..., example=32)
-    workclass: str = Field(..., example="Private")
-    fnlwgt: int = Field(..., example=205019)
-    education: str = Field(..., example="Assoc-acdm")
-    education_num: int = Field(..., example=12)
-    marital_status: str = Field(..., example="Never-married")
-    occupation: str = Field(..., example="Sales")
-    relationship: str = Field(..., example="Not-in-family")
-    race: str = Field(..., example="Black")
+    age: int = Field(..., example=25)
+    workclass: str = Field(..., example="State-gov")
+    fnlgt: int = Field(..., example=77516)
+    education: str = Field(..., example="Bachelors")
+    education_num: int = Field(..., example=14)
+    marital_status: str = Field(..., example="Divorced")
+    occupation: str = Field(..., example="Exec-managerial")
+    relationship: str = Field(..., example="Husband")
+    race: str = Field(..., example="White")
     sex: str = Field(..., example="Male")
     capital_gain: int = Field(..., example=0)
     capital_loss: int = Field(..., example=0)
-    hours_per_week: int = Field(..., example=50)
+    hours_per_week: int = Field(..., example=40)
     native_country: str = Field(..., example="United-States")
 
 
