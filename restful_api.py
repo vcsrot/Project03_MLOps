@@ -47,7 +47,7 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
 
 @app.get("/")
 def home():
-    return {"Hello": "Welcome to project 3!"}
+    return {"Ok!": "Status code success."}
 
 
 @app.post('/inference')
