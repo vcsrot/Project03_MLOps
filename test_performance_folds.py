@@ -1,6 +1,6 @@
 import pandas as pd
 from starter.train_model import batch_inference
-from main import CAT_FEATURES
+from model_train_pipeline import CAT_FEATURES
 
 
 def create_data_slice(data_path, col_to_slice, value_to_replace=None):
