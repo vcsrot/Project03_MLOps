@@ -18,9 +18,10 @@ sample = {
 }
 
 response = requests.post(
-    url='https://vin-project3-app.herokuapp.com/inference',
+    url='https://udacity-project03.herokuapp.com/inference',
     json=sample
 )
 
 print(response.status_code)
 print(response.json())
+
