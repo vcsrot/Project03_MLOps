@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 
 # Additional dependencies
 from .ml.data import process_data
@@ -20,20 +21,10 @@ def get_data(data_path):
 
     return train_data, test_data
 
-cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country"]
-
 def create_model(train_data, categorical_features, model_path, label_column='salary'):
     # Proces the train data with the process_data function.
     X_train, y_train, encoder, lb = process_data(
-        train_data, categorical_features=cat_features, label="salary", training=True
+        train_data, categorical_features, label="salary", training=True
     )
 
     # Train and save model
@@ -43,7 +34,7 @@ def create_model(train_data, categorical_features, model_path, label_column='sal
     joblib.dump((model, encoder, lb), model_path)
 
 
-def batch_inference(test_data, model_path, cat_features, label_column='income'):
+def batch_inference(test_data, model_path, cat_features, label_column='salary'):
     # Load trained object from path:
     model, encoder, lb = joblib.load(model_path)
 

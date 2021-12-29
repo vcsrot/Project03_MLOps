@@ -1,5 +1,5 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-
+from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -21,7 +21,7 @@ def train_model(X_train, y_train):
     # Create a RF model
     clf = RandomForestClassifier(
             random_state=8, max_depth=16, n_estimators=128)
-    clf.fit(X_train, y_train)
+    clf.fit(X_train, y_train) # noqa: F821
     return clf
 
 
