@@ -58,4 +58,4 @@ def test_post_2():
     }
     r = client.post('/inference', json=row2)
     assert r.status_code == 200
-    assert r.json() == {"income class": '>50K'}
+    assert r.json() == {"income class": '<=50K'}
