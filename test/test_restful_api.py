@@ -1,4 +1,12 @@
+import os, sys
 from fastapi.testclient import TestClient
+import inspect
+
+# Load app from parent folder:
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir) 
+
 from restful_api import app
 
 client = TestClient(app)
@@ -6,7 +14,7 @@ client = TestClient(app)
 def test_home():
     r = client.get('/')
     assert r.status_code == 200
-    assert r.json() == {"Hello": "Welcome to project 3!"}
+    assert r.json() == {"Ok!": "Status code success."}
 
 
 def test_1_predict_income():
