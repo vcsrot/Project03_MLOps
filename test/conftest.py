@@ -6,7 +6,7 @@ import pytest
 def data():
 
     # Check if cleaned version is on path:
-    data_path = 'starter/data/census_clean.csv'
+    data_path = 'data/census_clean.csv'
 
     if data_path is None:
         pytest.fail("You must provide the --csv option on the command line")
