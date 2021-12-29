@@ -1,9 +1,6 @@
 from fastapi.testclient import TestClient
-from fastapi import FastAPI
-#from restful_api import app
+from restful_api import app
 
-
-app = FastAPI()
 client = TestClient(app)
 
 def test_home():
