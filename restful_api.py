@@ -53,7 +53,7 @@ def home():
 @app.post('/inference')
 async def predict_income(inputrow: RowData):
     row_dict = jsonable_encoder(inputrow)
-    model_path = 'model/random_forest_model_with_encoder_and_lb.pkl'
+    model_path = 'model/random_forest_model.pkl'
     prediction = online_inference(row_dict, model_path, CAT_FEATURES)
 
     return {"income class": prediction}
