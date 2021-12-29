@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from inference_api import app
+from restful_api import app
 
 client = TestClient(app)
 
