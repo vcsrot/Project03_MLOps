@@ -34,7 +34,7 @@ if __name__ == '__main__':
                                                "model/random_forest_model.pkl",
                                                CAT_FEATURES)
 
-    with open('Performance_Fold_{}_{}.txt'.format(col_fold, category), 'a') as f:
+    with open('slice_output.txt', 'a') as f:
         result = f"""\n{'-'*50}\nperformance on sliced column -- {col_fold} -- {category}\n{'-'*50} \
             \nPrecision:\t{precision}\nRecall:\t{recall}\nF-beta score:\t{fbeta}\n"""
         f.write(result)

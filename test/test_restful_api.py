@@ -45,7 +45,7 @@ def test_post_2():
         "workclass": "Self-emp-not-inc",
         "fnlgt": 209642,
         "education": "HS-grad",
-        "education_num": 9,
+        "education_num": 16,
         "marital_status": "Married-civ-spouse",
         "occupation": "Exec-managerial",
         "relationship": "Husband",
@@ -53,9 +53,9 @@ def test_post_2():
         "sex": "Male",
         "capital_gain": 0,
         "capital_loss": 0,
-        "hours_per_week": 45,
+        "hours_per_week": 50,
         "native_country": "United-States"
     }
     r = client.post('/inference', json=row2)
     assert r.status_code == 200
-    assert r.json() == {"income class": '<=50K'}
+    assert r.json() == {"income class": '>50K'}
