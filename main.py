@@ -7,6 +7,7 @@ from starter.train_model import online_inference
 
 app = FastAPI()
 
+# Categorical features:
 CAT_FEATURES = [
     "workclass",
     "education",
@@ -18,7 +19,7 @@ CAT_FEATURES = [
     "native-country",
 ]
 
-
+# Data Schema - For FastAPI Documentation also:
 class RowData(BaseModel):
     age: int = Field(..., example=25)
     workclass: str = Field(..., example="State-gov")
@@ -35,7 +36,7 @@ class RowData(BaseModel):
     hours_per_week: int = Field(..., example=40)
     native_country: str = Field(..., example="United-States")
 
-
+# Adaption for DVC on Heroku:
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
     os.system('rm -rf .dvc/cache')
@@ -45,16 +46,15 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         exit("dvc pull failed")
     os.system("rm -rf .dvc .apt/usr/lib/dvc")
 
-
+# GET Method:
 @app.get("/")
 def home():
     return {"Ok!": "Status code success."}
 
-
+# POST Method:
 @app.post('/inference')
 async def predict_income(inputrow: RowData):
     row_dict = jsonable_encoder(inputrow)
     model_path = 'model/random_forest_model.pkl'
     prediction = online_inference(row_dict, model_path, CAT_FEATURES)
-
     return {"income class": prediction}
